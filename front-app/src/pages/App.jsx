@@ -1,32 +1,32 @@
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+import MemoInput from '../components/MemoInput';
+import MemoList from '../components/MemoList';
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [memos, setMemos] = useState(() => {
+        const savedMemos = localStorage.getItem('memos');
+        return savedMemos ? JSON.parse(savedMemos) : [];
+    });
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    useEffect(() => {
+        localStorage.setItem('memos', JSON.stringify(memos));
+    }, [memos]);
+
+    const addMemo = (text) => {
+        setMemos([...memos, { text, id: Date.now() }]);
+    };
+
+    const deleteMemo = (id) => {
+        setMemos(memos.filter(memo => memo.id !== id));
+    };
+
+    return (
+        <div>
+            <h1>Memo App</h1>
+            <MemoInput onAdd={addMemo} />
+            <MemoList memos={memos} onDelete={deleteMemo} />
+        </div>
+    );
 }
 
-export default App
+export default App;
