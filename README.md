@@ -1,2 +1,2 @@
 # 3.memo-app
-React exercise3 answer
+Answer to exercise3 in training-react-exercises
