@@ -1,0 +1,61 @@
+.form {
+  &__field {
+    position: relative;
+    display: flex; /* フレックスボックスを使用して横並びにする */
+    align-items: center; /* 中央揃え */
+    width: 300px;
+    margin: 16px auto;
+  }
+}
+
+.input {
+  display: block;
+  width: calc(100% - 80px); /* ボタンの幅を考慮して幅を設定 */
+  height: 36px;
+  border-width: 0 0 2px 0;
+  border-color: #000;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus,
+  &.not-empty {
+    + .label {
+      transform: translateY(-18px);
+    }
+  }
+}
+
+.label {
+  position: absolute;
+  left: 20px;
+  bottom: 11px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #888;
+  cursor: text;
+  transition: transform .2s ease-in-out;
+}
+
+.button {
+  width: 80px;
+  height: 36px;
+  margin-left: 8px; /* インプットフィールドとの間にスペースを追加 */
+  background-color: #000;
+  color: #fff;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out;
+
+  &:hover {
+    background-color: #333;
+  }
+}

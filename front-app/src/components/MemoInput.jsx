@@ -11,15 +11,25 @@ function MemoInput({ onAdd }) {
         }
     };
 
+    const handleInputChange = (e) => {
+        setText(e.target.value);
+    };
+
+    // `not-empty`クラスを条件によって追加する
+    const inputClass = text ? 'input not-empty' : 'input';
+
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                placeholder="Enter a memo"
-            />
-            <button type="submit">Add</button>
+        <form className="form" onSubmit={handleSubmit}>
+            <div className="form__field">
+                <input
+                    className={inputClass}
+                    type="text"
+                    value={text}
+                    onChange={handleInputChange}
+                />
+                <label className="label">Memo</label>
+                <button className="button" type="submit">Add</button>
+            </div>
         </form>
     );
 }

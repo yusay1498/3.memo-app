@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MemoInput from '../components/MemoInput';
 import MemoList from '../components/MemoList';
-import titleImg from '../assets/images/memo.png';
+import titleImg from '../assets/images/memo-title.png';
 
 function App() {
     const [memos, setMemos] = useState(() => {
