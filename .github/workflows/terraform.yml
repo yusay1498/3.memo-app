@@ -111,7 +111,7 @@ jobs:
 
     - name: Deploy S3
       run: |
-        cd ./front
+        cd ./front-app
         npm install
         npm run build
         aws s3 sync build/ s3://memo-app-bucket-react-exercise3
