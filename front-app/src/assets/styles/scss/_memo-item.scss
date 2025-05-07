@@ -1,0 +1,18 @@
+.memo-list {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.memo-item {
+  display: flex; /* フレックスボックスを使用して横並びにする */
+  justify-content: space-between; /* テキストとボタンの間にスペースを追加 */
+  align-items: center; /* 中央揃え */
+  border-bottom: 1px solid #ddd; /* ボトムボーダーを追加 */
+  text-align: left;
+}
+
+.memo-text {
+  flex-grow: 1; /* テキストを拡張 */
+  font-size: 18px;
+  line-height: 26px;
+}
