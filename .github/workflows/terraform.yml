@@ -114,4 +114,4 @@ jobs:
         cd ./front-app
         npm install
         npm run build
-        aws s3 sync build/ s3://memo-app-bucket-react-exercise3
+        aws s3 sync dist/ s3://memo-app-bucket-react-exercise3
