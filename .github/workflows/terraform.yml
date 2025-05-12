@@ -77,6 +77,14 @@ jobs:
       with:
         terraform_version: 1.10.5
 
+    - name: Print Environment Variables
+      run: |
+        if [ -z "${{ secrets.ASSUME_ROLE_ARN_CICD }}" ]; then
+          echo "ASSUME_ROLE_ARN_CICD is not set"
+        else
+          echo "ASSUME_ROLE_ARN_CICD is set"
+        fi
+
     - name: Assume role
       uses: aws-actions/configure-aws-credentials@v4
       with:
