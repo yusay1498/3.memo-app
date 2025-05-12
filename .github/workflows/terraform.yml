@@ -88,7 +88,7 @@ jobs:
     - name: Terraform Init
       run: |
         cd ./infra
-        terraform init -backend-config=./envs/dev/config.s3.tfbackend
+        terraform init -reconfigure -backend-config=./envs/dev/config.s3.tfbackend
 
     # Checks that all Terraform configuration files adhere to a canonical format
     #- name: Terraform Format
